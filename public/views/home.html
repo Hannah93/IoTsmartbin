@@ -5,8 +5,8 @@
   <div class=row ng-repeat="bins in smartbins | groupBy:3">
      <div class="col-xs-3 letter-box login-form-bg" ng-repeat="bin in bins" >
                   <h1> ID: {{bin.ID}} </h1>
-                   Location: {{bin.location}}
-                   Distance: {{bin.distance}}
+                   Location: {{bin.location}}<br>
+                   Distance: {{bin.distance}}<br>
                    Distance previous: {{bin.distanceprev}}
     </div>
   </div>
