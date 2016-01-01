@@ -1,0 +1,47 @@
+<!-- public/index.html -->
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <base href="/">
+
+    <title>smartbin</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.min.css">
+
+    <!-- JS -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script src="libs/angular/angular.js"></script>
+    <script src="libs/angular-route/angular-route.js"></script>
+
+
+    <!-- ANGULAR CUSTOM -->
+    <script src="js/app.js"></script>
+    <script src="js/appRoutes.js"></script>
+
+
+    <!--CONTROLLERS-->
+    <script src="js/controllers/MainCtrl.js"></script>
+
+
+
+
+</head>
+<body ng-app="IoTsmartbin" >
+<div class="container">
+    <!-- ANGULAR DYNAMIC CONTENT -->
+    <div ng-view></div>
+
+</div>
+
+
+<footer class="footer">
+     <div class="container">
+       <p class="text-footer">IoT smartbin</p>
+     </div>
+   </footer>
+
+</body>
+</html>
