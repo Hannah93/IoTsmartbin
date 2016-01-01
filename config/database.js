@@ -1,10 +1,10 @@
 // config/db.js
   var mysql = require("mysql");
   var con = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "IoTbin",
-    database: "iotsmartbin"
+    host: "sql4.freemysqlhosting.net",
+    user: "sql4101596",
+    password: "1sYWS9mAnB",
+    database: "sql4101596"
   });
 
   con.connect(function(err){
