@@ -2,9 +2,9 @@
 
 <section ng-controller="MainController" >
 <h1 class='col-md-12 text-center' >IoT smartbin dashboard</h1 >
-  <div ng-repeat="bin in smartbins">
-    <div class="span3 box">
-                   ID: {{bin.ID}}
+  <div class=row ng-repeat="bins in smartbins | groupBy:3">
+     <div class="col-xs-3 letter-box login-form-bg" ng-repeat="bin in bins" >
+                  <h1> ID: {{bin.ID}} </h1>
                    Location: {{bin.location}}
                    Distance: {{bin.distance}}
                    Distance previous: {{bin.distanceprev}}
