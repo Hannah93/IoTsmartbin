@@ -20,7 +20,7 @@ angular.module('MainCtrl', []).controller('MainController', ["$rootScope", "$htt
       $timeout(function() {
         $scope.getData();
         $scope.intervalFunction();
-      }, 10000)
+      }, 3000)
     };
 
     // Kick off the interval
