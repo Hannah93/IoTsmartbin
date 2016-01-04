@@ -1,2 +1,2 @@
 // public/js/app.js
-angular.module('IoTsmartbin', ['ngRoute', 'appRoutes','angular.filter', 'MainCtrl','DashboardCtrl', 'EditCtrl','httpFactory', 'angular-growl']);
+angular.module('IoTsmartbin', ['ngRoute', 'appRoutes','angular.filter','ngBootbox',  'MainCtrl','DashboardCtrl', 'EditCtrl','httpFactory', 'angular-growl']);
