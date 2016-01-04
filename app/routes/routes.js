@@ -16,9 +16,17 @@
 
           });
 
+          // LOGOUT LEERKRACHT==============================
+          app.post('/logout', function(req, res) {
+            req.session.destroy(function (err) {
+              console.log("in logout")
+                  res.json({ redirect: '/logout' });
+                 });
+
+          });
 
 
-                  // LOGIN lEERKRACHT===============================
+                  // LOGIN USER===============================
 
                   // process the login form
                   app.post('/Login', function(req, res, next) {
@@ -61,10 +69,13 @@
 
         // route middleware to make sure a user is logged in
     function isLoggedIn(req, res, next) {
-
+        console.log("in inloggedin");
         // if user is authenticated in the session, carry on
-        if (req.isAuthenticated())
-            return next();
+        if (req.isAuthenticated()){
+            console.log("is authenticated");
+              return next();
+        }
+
 
         // if they aren't redirect them to the home page
         res.redirect('/');

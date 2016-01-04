@@ -26,6 +26,11 @@ angular.module('DashboardCtrl', []).controller('DashboardController', ["$rootSco
     // Kick off the interval
     $scope.intervalFunction();
 
+    $scope.logout=function(){
+      $http.post('/logout')
+          .success(function(data) {
+                  });
+    }
 
   document.body.style.background = "#CEF6F5 url('../img/Achtergrond.png') no-repeat right top"
 }]);
