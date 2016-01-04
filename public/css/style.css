@@ -37,8 +37,33 @@ body{
   border: 15px solid;
   border-radius: 15px;
   border-color: white;
-  margin: 2%;
-  text-align: center;
+  margin-top: 50px;
+
+}
+
+.edit-form-bg{
+  background-color: white;
+  border: 15px solid;
+  border-radius: 15px;
+  border-color: white;
+  margin-top: 50px;
+
+}
+
+.buttonedit{
+  background: transparent;
+  border: none !important;
+  float: right;
+}
+
+.dashboard-form-bg{
+  background-color: white;
+  border: 15px solid;
+  border-radius: 15px;
+  border-color: white;
+  margin-right: 10px;
+  margin-left: 20px;
+  margin-top: 50px;
 }
 
 .warningfull {
@@ -46,6 +71,7 @@ body{
   border: 15px solid;
   border-radius: 15px;
   border-color: red;
-  margin: 2%;
-  text-align: center;
+  margin-right: 10px;
+  margin-left: 20px;
+  margin-top: 50px;
 }

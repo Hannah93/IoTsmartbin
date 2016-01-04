@@ -12,6 +12,10 @@
             templateUrl: 'views/dashboard.html',
             controller: 'DashboardController'
         })
+        .when('/Edit/:binID', {
+            templateUrl: 'views/edit.html',
+            controller: 'EditController'
+        })
 
         .otherwise({
                     templateUrl: '/views/home.html',

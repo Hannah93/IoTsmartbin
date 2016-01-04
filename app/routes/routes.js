@@ -16,6 +16,18 @@
 
           });
 
+          app.get('/smartbindata/:binID', isLoggedIn, function(req, res) {
+            db.query("SELECT * FROM smartbin where id='"+req.params.binID+"'",function(err,rows){
+              if(err) throw err;
+
+              //console.log('Data received from Db:\n');
+              return res.json(rows[0]);
+
+                  });
+
+
+              });
+
           // LOGOUT LEERKRACHT==============================
           app.post('/logout', function(req, res) {
             req.session.destroy(function (err) {
@@ -58,6 +70,7 @@
 
               // frontend routes =========================================================
               app.get('/Dashboard',isLoggedIn);
+              app.get('/edit/:binID',isLoggedIn);
 
               // route to handle all angular requests
               app.get('*', function(req, res) {
