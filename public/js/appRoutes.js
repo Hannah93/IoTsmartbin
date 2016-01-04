@@ -10,7 +10,7 @@
         })
         .when('/Dashboard', {
             templateUrl: 'views/dashboard.html',
-            controller: 'DashboardnController'
+            controller: 'DashboardController'
         })
 
         .otherwise({

@@ -21,7 +21,9 @@ module.exports = function(passport) {
 
     // used to deserialize the user
     passport.deserializeUser(function(user, done) {
-      db.query("select * from users where user = "+user,function(err,rows){
+
+      db.query("select * from user where user = '"+user+"'",function(err,rows){
+        console.log(err);
             done(err, rows[0]);
         });
     });

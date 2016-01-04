@@ -1,4 +1,4 @@
-angular.module('Dashboardtrl', []).controller('DashboardController', ["$rootScope", "$http", "$scope","$timeout", function ($rootScope, $http, $scope, $timeout)  {
+angular.module('DashboardCtrl', []).controller('DashboardController', ["$rootScope", "$http", "$scope","$timeout", function ($rootScope, $http, $scope, $timeout)  {
 
   $http.get('/smartbinData')
       .success(function(data) {

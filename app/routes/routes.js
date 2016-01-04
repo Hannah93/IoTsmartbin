@@ -3,7 +3,7 @@
 
       //Get SmartBin Data =====================================================
 
-      app.get('/smartbindata', function(req, res) {
+      app.get('/smartbindata', isLoggedIn, function(req, res) {
         db.query('SELECT * FROM smartbin',function(err,rows){
           if(err) throw err;
 
@@ -49,9 +49,23 @@
 
 
               // frontend routes =========================================================
+              app.get('/Dashboard',isLoggedIn);
+
               // route to handle all angular requests
               app.get('*', function(req, res) {
                   res.sendfile('./public/views/index.html'); // load our public/index.html file
               });
 
     };
+
+
+        // route middleware to make sure a user is logged in
+    function isLoggedIn(req, res, next) {
+
+        // if user is authenticated in the session, carry on
+        if (req.isAuthenticated())
+            return next();
+
+        // if they aren't redirect them to the home page
+        res.redirect('/');
+    }

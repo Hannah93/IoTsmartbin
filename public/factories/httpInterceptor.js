@@ -8,6 +8,8 @@
         .factory('myHttpResponseInterceptor',['$q','$location', 'growl',function($q,$location, growl){
             return {
                 response: function(response) {
+                  console.log("in httpinterceptor");
+
                     if (typeof response.data === 'object') {
                         if (response.data.redirect) {
                             $location.path(response.data.redirect);
