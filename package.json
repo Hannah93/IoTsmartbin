@@ -10,6 +10,13 @@
   "license": "ISC",
   "dependencies": {
     "express": "~4.5.1",
-    "mysql": "latest"
+    "mysql": "latest",
+    "body-parser": "~1.4.2",
+    "express-session": "~1.0.0",
+    "method-override": "~2.0.2",
+    "passport" : "~0.1.17",
+    "passport-local" : "~0.1.6",
+    "morgan": "~1.0.0",
+    "cookie-parser": "~1.0.0"
   }
 }

@@ -8,6 +8,10 @@
             templateUrl: 'views/home.html',
             controller: 'MainController'
         })
+        .when('/Dashboard', {
+            templateUrl: 'views/dashboard.html',
+            controller: 'DashboardnController'
+        })
 
         .otherwise({
                     templateUrl: '/views/home.html',
