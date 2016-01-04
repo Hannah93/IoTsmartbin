@@ -3,6 +3,7 @@
 // load all the things we need
 var LocalStrategy   = require('passport-local').Strategy;
 
+var db = require('../config/database');// config files
 
 // expose this function to our app using module.exports
 module.exports = function(passport) {
@@ -14,14 +15,14 @@ module.exports = function(passport) {
     // passport needs ability to serialize and unserialize users out of session
 
     // used to serialize the user for the session
-    passport.serializeUser(function(leerkracht, done) {
-        done(null, leerkracht.id);
+    passport.serializeUser(function(user, done) {
+        done(null, user.user);
     });
 
     // used to deserialize the user
-    passport.deserializeUser(function(id, done) {
-        models.Leerkracht.findById(id, function(err, leerkracht) {
-            done(err, leerkracht);
+    passport.deserializeUser(function(user, done) {
+      db.query("select * from users where user = "+user,function(err,rows){
+            done(err, rows[0]);
         });
     });
 
@@ -40,21 +41,30 @@ module.exports = function(passport) {
 
           // asynchronous
           process.nextTick(function() {
-              models.Leerkracht.findOne({ 'email' :  email }, function(err, leerkracht) {
-                  // if there are any errors, return the error
-                  if (err)
-                      return done(err);
 
-                  // if no user is found, return the message
-                  if (!leerkracht)
-                      return done(null, { error: 'No user found. ' });
+            db.query("SELECT * FROM `user` WHERE `user` = '" + user + "'",function(err,rows){
+                  			if (err)
+                                  return done(err);
+                  			 if (!rows.length) {
+                           console.log("no user found");
+                                  return done(null, { error: 'No user found. ' }); // req.flash is the way to set flashdata using connect-flash
+                              }
 
-                  if (!leerkracht.validPassword(password))
-                      return done(null, { error: 'Oops! Wrong password.' });
+                  			// if the user is found but the password is wrong
+                              if (!( rows[0].password == password))
+                              {
+                                console.log("no user found");
+                                return done(null, { error: 'Oops! Wrong password.' }); // create the loginMessage and save it to session as flashdata
 
-                  // all is well, return user
-                  else
-                      return done(null, leerkracht);
-              });
+                              }
+
+                              console.log("all is well");
+
+                              // all is well, return successful user
+                              return done(null, rows[0]);
+
+                  		});
           });
       }));
+
+    };

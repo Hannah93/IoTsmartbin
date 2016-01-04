@@ -44,7 +44,7 @@ app.use(passport.session()); // persistent login sessions
 
 
 // routes ==================================================
-require('./app/routes/routes')(app, db); // configure our routes
+require('./app/routes/routes')(app, db, passport); // configure our routes
 
 
 // start app ===============================================
